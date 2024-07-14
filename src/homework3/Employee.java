@@ -132,8 +132,8 @@ public class Employee {
      * число - текущий сотрудник моложе
      */
     public int compareAge(Employee emp){
-        Integer curEmpAge = this.birthD + (this.birthM * 30)  + (this.birthY * 360);
-        Integer anotherEmpAge = emp.birthD + (emp.birthM * 30) + (emp.birthY * 360);
+        Integer curEmpAge = this.birthD + (this.birthM * 30)  + (this.birthY * 365);
+        Integer anotherEmpAge = emp.birthD + (emp.birthM * 30) + (emp.birthY * 365);
         return (curEmpAge - anotherEmpAge) * (-1);
     }
 
