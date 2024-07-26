@@ -7,6 +7,7 @@ package homework4;
  **/
 
 import java.util.Arrays;
+import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
@@ -59,7 +60,7 @@ public class Main {
 
     }
     enum Holidays{NONE, NEW_YEAR, WOMEN_DAY, DEFENDER_DAY}
-    static final Holidays today = Holidays.DEFENDER_DAY;
+    static Holidays today = declareHoliday();
     private static void celebrate (Employee[] employees){
         for (int i = 0; i < employees.length; i++){
             switch (today) {
@@ -80,5 +81,19 @@ public class Main {
                     System.out.println("Какой чудесный день, " + employees[i].getName());
             }
         }
+    }
+
+    private static Holidays declareHoliday(){
+        Date dateNow = new Date();
+        if(dateNow.getDate() == 1 && dateNow.getMonth() == 1){
+            today = Holidays.NEW_YEAR;
+        } else if (dateNow.getDate() == 23 && dateNow.getMonth() == 2) {
+            today = Holidays.DEFENDER_DAY;
+        } else if (dateNow.getDate() == 8 && dateNow.getMonth() == 3) {
+            today = Holidays.WOMEN_DAY;
+        } else {
+            today = Holidays.NONE;
+        }
+        return today;
     }
 }
